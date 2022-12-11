@@ -40,11 +40,11 @@ const Header = () => {
       className={`header d-flex align-items-center ${sticked && "sticked"}`}
     >
       <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
-        <a href="index.html" className="logo d-flex align-items-center">
+        <Link to="/" className="logo d-flex align-items-center">
           <h1>
             Develop<span>.</span>
           </h1>
-        </a>
+        </Link>
         <nav id="navbar" className="navbar">
           <ul>
             <li>
