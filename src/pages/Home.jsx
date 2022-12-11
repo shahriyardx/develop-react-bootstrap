@@ -9,11 +9,13 @@ import MainLayout from '../components/shared/MainLayout'
 const Home = () => {
   return (
     <MainLayout>
-      <Hero />
-      <Services />
-      <About />
-      <Clients />
-      <Team />
+      <main id="main">
+        <Hero />
+        <Services />
+        <About />
+        <Clients />
+        <Team />
+      </main>
     </MainLayout>
   )
 }

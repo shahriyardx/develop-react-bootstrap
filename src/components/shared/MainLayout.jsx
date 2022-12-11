@@ -9,7 +9,7 @@ const MainLayout = ({ children }) => {
       <Topbar />
       <Header />
 
-      <main id="main">{children}</main>
+      {children}
 
       {/* <div id="preloader"></div> */}
       <Footer />
