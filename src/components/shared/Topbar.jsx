@@ -1,6 +1,29 @@
 import React from "react"
+import { useEffect } from "react"
+import { useState } from "react"
 
 const Topbar = () => {
+  const [mode, setMode] = useState(
+    localStorage.getItem("develop_theme") || "light"
+  )
+
+  const toggleMode = () => {
+    const modes = {
+      dark: "light",
+      light: "dark",
+    }
+    const newMode = modes[mode] || "light"
+
+    localStorage.setItem("develop_theme", newMode)
+    document.querySelector("html").setAttribute("theme", `${newMode}-mode`)
+    setMode(newMode)
+  }
+
+  useEffect(() => {
+    const theme = localStorage.getItem("develop_theme") || 'light'
+    document.querySelector("html").setAttribute("theme", `${theme}-mode`)
+  }, [])
+
   return (
     <section id="topbar" className="topbar d-flex align-items-center">
       <div className="container d-flex justify-content-center justify-content-md-between">
@@ -24,6 +47,14 @@ const Topbar = () => {
           </a>
           <a href="#" className="linkedin">
             <i className="bi bi-linkedin"></i>
+          </a>
+
+          <a href="#" onClick={() => toggleMode()}>
+            {mode === "dark" ? (
+              <i className="bi bi-sun"></i>
+            ) : (
+              <i className="bi bi-moon"></i>
+            )}
           </a>
         </div>
       </div>
